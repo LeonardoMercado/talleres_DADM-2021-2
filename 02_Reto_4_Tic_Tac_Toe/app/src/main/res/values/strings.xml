@@ -9,4 +9,8 @@
     <string name="btn7">7</string>
     <string name="btn8">8</string>
     <string name="btn9">9</string>
+
+    <!--MASSAGE TO USER-->
+    <string name="msgYouTurn">Is your turn, select one</string>
+
 </resources>

@@ -12,5 +12,14 @@
 
     <!--MASSAGE TO USER-->
     <string name="msgYouTurn">Is your turn, select one</string>
+    <string name="msgComputerTurn">It\'s Android\'s Turn.</string>
+    <string name="msgTie">It\'s a Tie!</string>
+    <string name="msgWinUser">You Won!</string>
+    <string name="msgWinComputer">Android Won!, Game Over</string>
+
+
+    <!--AUXILIARY-->
+    <string name="playerChar">X</string>
+    <string name="computerChar">O</string>
 
 </resources>

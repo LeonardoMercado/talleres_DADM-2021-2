@@ -184,10 +184,12 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"
         android:layout_height="56dp"
+        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/botton_menu" />
+        app:menu="@menu/botton_menu"
+        app:labelVisibilityMode="labeled"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

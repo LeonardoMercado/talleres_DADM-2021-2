@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/leo7s/Documents/01_Universidad/04_DADM/02_Repositorio_Talleres/talleres_DADM-2021-2/02_Reto_4_Tic_Tac_Toe/app/src/main/res/layout/activity_main.xml" value="0.67" />
+        <entry key="..\:/Users/leo7s/Documents/01_Universidad/04_DADM/02_Repositorio_Talleres/talleres_DADM-2021-2/02_Reto_4_Tic_Tac_Toe/app/src/main/res/drawable/settings_backup_icon_32.xml" value="0.1" />
+        <entry key="..\:/Users/leo7s/Documents/01_Universidad/04_DADM/02_Repositorio_Talleres/talleres_DADM-2021-2/02_Reto_4_Tic_Tac_Toe/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/leo7s/Documents/01_Universidad/04_DADM/02_Repositorio_Talleres/talleres_DADM-2021-2/02_Reto_4_Tic_Tac_Toe/app/src/main/res/menu/botton_menu.xml" value="0.262037037037037" />
       </map>
     </option>
   </component>

@@ -25,9 +25,15 @@ class MainActivity : AppCompatActivity() {
 
     // Declaring Labels
     private lateinit var lblInfoGame: TextView
+    private lateinit var lblHumanScore: TextView
+    private lateinit var lblTiesScore: TextView
+    private lateinit var lblAndroidScore: TextView
 
     // Declaring other variables
     private var win = 0
+    private var humanScore = 0
+    private var tieScore = 0
+    private var androidScore = 0
 
 
     // Declaring other constans
@@ -54,9 +60,16 @@ class MainActivity : AppCompatActivity() {
         btn9 = findViewById(R.id.btn9)
         mBoardButtons = listOf(btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9)
         lblInfoGame = findViewById(R.id.lblInfo)
+        lblHumanScore = findViewById(R.id.lblScoreHuman)
+        lblTiesScore = findViewById(R.id.lblScoreTies)
+        lblAndroidScore = findViewById(R.id.lblScoreAndroid)
         btnReset = findViewById(R.id.btnReset)
+
+
+
         // Starting a new Game
         clearBoard()
+        resetScore()
         btnReset.setOnClickListener {clearBoard()}
     }
     private fun clearBoard(){
@@ -85,10 +98,16 @@ class MainActivity : AppCompatActivity() {
                     lblInfoGame.text = getString(R.string.msgYouTurn)
                 }else if(winner == 1){
                     lblInfoGame.text = getString(R.string.msgTie)
+                    tieScore++
+                    lblTiesScore.text = "Ties:$tieScore"
                 }else if(winner == 2){
                     lblInfoGame.text = getText(R.string.msgWinUser)
+                    humanScore++
+                    lblHumanScore.text = "Human:$humanScore"
                 }else{
                     lblInfoGame.text = getText(R.string.msgWinComputer)
+                    androidScore++
+                    lblAndroidScore.text = "Android:$androidScore"
                     for(btn in mBoardButtons){
                         btn.isEnabled = false
                         btn.isClickable = false
@@ -212,5 +231,10 @@ class MainActivity : AppCompatActivity() {
 
         // If we make it through the previous loop, all places are taken, so it's a tie
         return 1
+    }
+    private fun resetScore(){
+        lblHumanScore.text = getString(R.string.lblHumanScore)
+        lblTiesScore.text = getString(R.string.lblTiesScore)
+        lblAndroidScore.text = getString(R.string.lblAndroidScore)
     }
 }

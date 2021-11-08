@@ -16,6 +16,10 @@
     <string name="msgTie">It\'s a Tie!</string>
     <string name="msgWinUser">You Won!</string>
     <string name="msgWinComputer">Android Won!, Game Over</string>
+    <string name="lblScore">The current Score:</string>
+    <string name="lblHumanScore">Human:0</string>
+    <string name="lblTiesScore">Ties:0</string>
+    <string name="lblAndroidScore">Android:0</string>
 
 
     <!--AUXILIARY-->

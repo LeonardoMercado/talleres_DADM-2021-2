@@ -36,6 +36,11 @@ class MainActivity : AppCompatActivity() {
         // Menu actions
         binding.bottomNavigationView.setOnItemSelectedListener { it ->
             when(it.itemId){
+                R.id.reset -> {
+                    clearBoard()
+                    resetScore()
+                    true
+                }
                 R.id.newGame -> {
                     clearBoard() // clear the board
                     true

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">tictactoe</string>
+    <string name="app_name">Tic Tac Toe</string>
     <string name="btn1">1</string>
     <string name="btn2">2</string>
     <string name="btn3">3</string>
@@ -29,6 +29,7 @@
     <!--LABELS MENU-->
     <string name="lblNewGame">New Game</string>
     <string name="lblDifficulty">Difficulty</string>
+    <string name="lblReset">Reset Game</string>
     <string name="lblExit">Exit</string>
 
 

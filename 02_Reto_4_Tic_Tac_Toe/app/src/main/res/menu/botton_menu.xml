@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/reset"
+        android:title="@string/lblReset"
+        android:icon="@drawable/ic_reset_32"/>
     <item
         android:id="@+id/newGame"
         android:title="@string/lblNewGame"
-        android:icon="@drawable/ic_reset_32"/>
+        android:icon="@drawable/ic_new_game_32"/>
     <item
         android:id="@+id/difficulty"
         android:title="@string/lblDifficulty"
         android:icon="@drawable/ic_difficult_32" />
+
     <item
         android:id="@+id/exit"
         android:title="@string/lblExit"

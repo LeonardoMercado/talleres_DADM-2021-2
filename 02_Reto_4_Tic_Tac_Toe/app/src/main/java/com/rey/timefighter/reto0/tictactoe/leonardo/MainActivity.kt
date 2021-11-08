@@ -11,16 +11,7 @@ import com.rey.timefighter.reto0.tictactoe.leonardo.databinding.ActivityMainBind
 
 class MainActivity : AppCompatActivity() {
 
-    // Declaring Buttons
-    private lateinit var btn1: Button
-    private lateinit var btn2: Button
-    private lateinit var btn3: Button
-    private lateinit var btn4: Button
-    private lateinit var btn5: Button
-    private lateinit var btn6: Button
-    private lateinit var btn7: Button
-    private lateinit var btn8: Button
-    private lateinit var btn9: Button
+    // Declaring List of Buttons
     private lateinit var mBoardButtons: List<Button>
 
     // Declaring Labels
@@ -48,11 +39,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
-        // Doing some settings
+        setContentView(binding.root)
+        // Doing some settings-+
         setup()
 
+        // Menu actions
         binding.bottomNavigationView.setOnItemSelectedListener { it ->
             when(it.itemId){
                 R.id.newGame -> {
@@ -72,17 +63,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private fun setup(){
-        // Linking a ids
-        btn1 = findViewById(R.id.btn1)
-        btn2 = findViewById(R.id.btn2)
-        btn3 = findViewById(R.id.btn3)
-        btn4 = findViewById(R.id.btn4)
-        btn5 = findViewById(R.id.btn5)
-        btn6 = findViewById(R.id.btn6)
-        btn7 = findViewById(R.id.btn7)
-        btn8 = findViewById(R.id.btn8)
-        btn9 = findViewById(R.id.btn9)
-        mBoardButtons = listOf(btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9)
+        // Filling the list of buttons
+        mBoardButtons = listOf(binding.btn1,
+                               binding.btn2,
+                               binding.btn3,
+                               binding.btn4,
+                               binding.btn5,
+                               binding.btn6,
+                               binding.btn7,
+                               binding.btn8,
+                               binding.btn9)
         lblInfoGame = findViewById(R.id.lblInfo)
         lblHumanScore = findViewById(R.id.lblScoreHuman)
         lblTiesScore = findViewById(R.id.lblScoreTies)

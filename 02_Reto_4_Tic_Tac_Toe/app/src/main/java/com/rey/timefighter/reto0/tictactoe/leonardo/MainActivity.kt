@@ -14,24 +14,13 @@ class MainActivity : AppCompatActivity() {
     // Declaring List of Buttons
     private lateinit var mBoardButtons: List<Button>
 
-    // Declaring Labels
-    private lateinit var lblInfoGame: TextView
-    private lateinit var lblHumanScore: TextView
-    private lateinit var lblTiesScore: TextView
-    private lateinit var lblAndroidScore: TextView
-
-
     // Declaring other variables
-    private var win = 0
     private var humanScore = 0
     private var tieScore = 0
     private var androidScore = 0
-
-
     // Declaring other constans
     private val HUMAN_PLAYER = "X"
     private val COMPUTER_PLAYER = "O"
-
     // For binding
     private lateinit var binding: ActivityMainBinding
 
@@ -73,11 +62,6 @@ class MainActivity : AppCompatActivity() {
                                binding.btn7,
                                binding.btn8,
                                binding.btn9)
-        lblInfoGame = findViewById(R.id.lblInfo)
-        lblHumanScore = findViewById(R.id.lblScoreHuman)
-        lblTiesScore = findViewById(R.id.lblScoreTies)
-        lblAndroidScore = findViewById(R.id.lblScoreAndroid)
-
         // Starting a new Game
         clearBoard()
         resetScore()
@@ -92,7 +76,7 @@ class MainActivity : AppCompatActivity() {
             onClick(mBoardButtons[i],i)
         }
         // Clearing the label info
-        lblInfoGame.text = getString(R.string.msgYouTurn)
+        binding.lblInfo.text = getString(R.string.msgYouTurn)
     }
     private fun onClick(btn:Button, location:Int){
         btn.setOnClickListener {
@@ -100,25 +84,25 @@ class MainActivity : AppCompatActivity() {
                 setMove(HUMAN_PLAYER,location)
                 var winner = checkForWinner()
                 if(winner == 0){
-                    lblInfoGame.text = getString(R.string.msgComputerTurn)
+                    binding.lblInfo.text = getString(R.string.msgComputerTurn)
                     val moveComputer = getComputerMove()
                     setMove(COMPUTER_PLAYER,moveComputer)
                     winner = checkForWinner()
                 }
                 if(winner == 0){
-                    lblInfoGame.text = getString(R.string.msgYouTurn)
+                    binding.lblInfo.text = getString(R.string.msgYouTurn)
                 }else if(winner == 1){
-                    lblInfoGame.text = getString(R.string.msgTie)
+                    binding.lblInfo.text = getString(R.string.msgTie)
                     tieScore++
-                    lblTiesScore.text = "Ties:$tieScore"
+                    binding.lblScoreTies.text = "Ties:$tieScore"
                 }else if(winner == 2){
-                    lblInfoGame.text = getText(R.string.msgWinUser)
+                    binding.lblInfo.text = getText(R.string.msgWinUser)
                     humanScore++
-                    lblHumanScore.text = "Human:$humanScore"
+                    binding.lblScoreHuman.text = "Human:$humanScore"
                 }else{
-                    lblInfoGame.text = getText(R.string.msgWinComputer)
+                    binding.lblInfo.text = getText(R.string.msgWinComputer)
                     androidScore++
-                    lblAndroidScore.text = "Android:$androidScore"
+                    binding.lblScoreAndroid.text = "Android:$androidScore"
                     for(btn in mBoardButtons){
                         btn.isEnabled = false
                         btn.isClickable = false
@@ -244,9 +228,9 @@ class MainActivity : AppCompatActivity() {
         return 1
     }
     private fun resetScore(){
-        lblHumanScore.text = getString(R.string.lblHumanScore)
-        lblTiesScore.text = getString(R.string.lblTiesScore)
-        lblAndroidScore.text = getString(R.string.lblAndroidScore)
+        binding.lblScoreHuman.text = getString(R.string.lblHumanScore)
+        binding.lblScoreTies.text = getString(R.string.lblTiesScore)
+        binding.lblScoreAndroid.text = getString(R.string.lblAndroidScore)
     }
     private fun mensajes(msg:String){
         Toast.makeText(this,msg,Toast.LENGTH_SHORT).show()

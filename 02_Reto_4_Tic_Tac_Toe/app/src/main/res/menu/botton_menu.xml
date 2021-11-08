@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/newGame"
-        android:title="New Game"
+        android:title="@string/lblNewGame"
         android:icon="@drawable/ic_reset_32"/>
     <item
         android:id="@+id/difficulty"
-        android:title="Difficulty"
+        android:title="@string/lblDifficulty"
         android:icon="@drawable/ic_difficult_32" />
     <item
         android:id="@+id/exit"
-        android:title="Exit"
+        android:title="@string/lblExit"
         android:icon="@drawable/ic_close_32"/>
 </menu>

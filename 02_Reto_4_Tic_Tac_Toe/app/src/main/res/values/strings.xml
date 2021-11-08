@@ -26,4 +26,10 @@
     <string name="playerChar">X</string>
     <string name="computerChar">O</string>
 
+    <!--LABELS MENU-->
+    <string name="lblNewGame">New Game</string>
+    <string name="lblDifficulty">Difficulty</string>
+    <string name="lblExit">Exit</string>
+
+
 </resources>

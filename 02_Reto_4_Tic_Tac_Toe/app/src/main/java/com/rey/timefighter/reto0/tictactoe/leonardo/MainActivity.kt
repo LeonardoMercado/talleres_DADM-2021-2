@@ -4,9 +4,10 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import com.rey.timefighter.reto0.tictactoe.leonardo.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btn7: Button
     private lateinit var btn8: Button
     private lateinit var btn9: Button
-    private lateinit var btnReset: ImageButton
     private lateinit var mBoardButtons: List<Button>
 
     // Declaring Labels
@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var lblHumanScore: TextView
     private lateinit var lblTiesScore: TextView
     private lateinit var lblAndroidScore: TextView
+
 
     // Declaring other variables
     private var win = 0
@@ -40,12 +41,35 @@ class MainActivity : AppCompatActivity() {
     private val HUMAN_PLAYER = "X"
     private val COMPUTER_PLAYER = "O"
 
+    // For binding
+    private lateinit var binding: ActivityMainBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         // Doing some settings
         setup()
+
+        binding.bottomNavigationView.setOnItemSelectedListener { it ->
+            when(it.itemId){
+                R.id.newGame -> {
+                    mensajes("entramos a new game")
+                    true
+                }
+                R.id.difficulty -> {
+                    mensajes("Entramos a dificultad")
+                    true
+                }
+                R.id.exit -> {
+                    mensajes("Entramos a exit")
+                    true
+                }
+                else -> false
+            }
+        }
     }
     private fun setup(){
         // Linking a ids
@@ -63,14 +87,11 @@ class MainActivity : AppCompatActivity() {
         lblHumanScore = findViewById(R.id.lblScoreHuman)
         lblTiesScore = findViewById(R.id.lblScoreTies)
         lblAndroidScore = findViewById(R.id.lblScoreAndroid)
-        btnReset = findViewById(R.id.btnReset)
-
-
 
         // Starting a new Game
         clearBoard()
         resetScore()
-        btnReset.setOnClickListener {clearBoard()}
+        //btnReset.setOnClickListener {clearBoard()}
     }
     private fun clearBoard(){
         // clearing the buttons
@@ -236,5 +257,8 @@ class MainActivity : AppCompatActivity() {
         lblHumanScore.text = getString(R.string.lblHumanScore)
         lblTiesScore.text = getString(R.string.lblTiesScore)
         lblAndroidScore.text = getString(R.string.lblAndroidScore)
+    }
+    private fun mensajes(msg:String){
+        Toast.makeText(this,msg,Toast.LENGTH_SHORT).show()
     }
 }

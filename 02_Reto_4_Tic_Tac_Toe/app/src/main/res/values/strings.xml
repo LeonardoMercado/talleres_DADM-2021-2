@@ -32,5 +32,9 @@
     <string name="lblReset">Reset Game</string>
     <string name="lblExit">Exit</string>
 
+    <!--MSG DIALOG-->
+    <string name="lblTitleCloseApp">"Are you sure you want to quit?"</string>
+
+
 
 </resources>

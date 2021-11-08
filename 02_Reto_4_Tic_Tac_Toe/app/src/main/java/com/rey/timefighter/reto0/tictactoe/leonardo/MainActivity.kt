@@ -1,11 +1,11 @@
 package com.rey.timefighter.reto0.tictactoe.leonardo
 
+import android.content.DialogInterface
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import com.rey.timefighter.reto0.tictactoe.leonardo.databinding.ActivityMainBinding
 import kotlin.system.exitProcess
 
@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private var humanScore = 0
     private var tieScore = 0
     private var androidScore = 0
+    private var flagdifficulty:Difficulty = Difficulty.EASY
     // Declaring other constans
     private val HUMAN_PLAYER = "X"
     private val COMPUTER_PLAYER = "O"
@@ -46,11 +47,11 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.difficulty -> {
-                    mensajes("Entramos a dificultad")
+                    cambiarDificultad()
                     true
                 }
                 R.id.exit -> {
-                    finishAffinity()
+                    cerrarApp()
                     true
                 }
                 else -> false
@@ -131,38 +132,65 @@ class MainActivity : AppCompatActivity() {
     }
     private fun getComputerMove():Int{
         var move:Int
-        // First see if there's a move O can make to win
-        for(i in 0..8){
-            if(mBoardButtons[i].text != HUMAN_PLAYER && mBoardButtons[i].text != COMPUTER_PLAYER){
-                val curr = mBoardButtons[i].text
-                mBoardButtons[i].text = COMPUTER_PLAYER
-                if(checkForWinner() == 3){
-                    //Toast.makeText(this,"moving to: ${i+1}",Toast.LENGTH_SHORT).show()
-                    return i
-                }else{
-                    mBoardButtons[i].text = curr
+        if(flagdifficulty == Difficulty.EASY){
+            // Generate random move
+            do {
+                move = (0..8).random()
+            }while (mBoardButtons[move].text == HUMAN_PLAYER || mBoardButtons[move].text == COMPUTER_PLAYER)
+            return move
+        }else if(flagdifficulty == Difficulty.HARDER){
+            // First see if there's a move O can make to win
+            for(i in 0..8){
+                if(mBoardButtons[i].text != HUMAN_PLAYER && mBoardButtons[i].text != COMPUTER_PLAYER){
+                    val curr = mBoardButtons[i].text
+                    mBoardButtons[i].text = COMPUTER_PLAYER
+                    if(checkForWinner() == 3){
+                        //Toast.makeText(this,"moving to: ${i+1}",Toast.LENGTH_SHORT).show()
+                        return i
+                    }else{
+                        mBoardButtons[i].text = curr
+                    }
                 }
             }
-        }
-        // See if there's a move O can make to block X from winning
-        for(i in 0..8){
-            if(mBoardButtons[i].text != HUMAN_PLAYER && mBoardButtons[i].text != COMPUTER_PLAYER){
-                val curr = mBoardButtons[i].text
-                mBoardButtons[i].text = HUMAN_PLAYER
-                if(checkForWinner() == 2){
-                    //Toast.makeText(this,"moving to: ${i+1}",Toast.LENGTH_SHORT).show()
-                    return i
-                }else{
-                    mBoardButtons[i].text = curr
+            // Generate random move
+            do {
+                move = (0..8).random()
+            }while (mBoardButtons[move].text == HUMAN_PLAYER || mBoardButtons[move].text == COMPUTER_PLAYER)
+            return move
+        }else if(flagdifficulty == Difficulty.EXPERT){
+            // First see if there's a move O can make to win
+            for(i in 0..8){
+                if(mBoardButtons[i].text != HUMAN_PLAYER && mBoardButtons[i].text != COMPUTER_PLAYER){
+                    val curr = mBoardButtons[i].text
+                    mBoardButtons[i].text = COMPUTER_PLAYER
+                    if(checkForWinner() == 3){
+                        //Toast.makeText(this,"moving to: ${i+1}",Toast.LENGTH_SHORT).show()
+                        return i
+                    }else{
+                        mBoardButtons[i].text = curr
+                    }
                 }
             }
+            // See if there's a move O can make to block X from winning
+            for(i in 0..8){
+                if(mBoardButtons[i].text != HUMAN_PLAYER && mBoardButtons[i].text != COMPUTER_PLAYER){
+                    val curr = mBoardButtons[i].text
+                    mBoardButtons[i].text = HUMAN_PLAYER
+                    if(checkForWinner() == 2){
+                        //Toast.makeText(this,"moving to: ${i+1}",Toast.LENGTH_SHORT).show()
+                        return i
+                    }else{
+                        mBoardButtons[i].text = curr
+                    }
+                }
+            }
+            // Generate random move
+            do {
+                move = (0..8).random()
+            }while (mBoardButtons[move].text == HUMAN_PLAYER || mBoardButtons[move].text == COMPUTER_PLAYER)
+            return move
         }
-        // Generate random move
-        do {
-            move = (0..8).random()
-        }while (mBoardButtons[move].text == HUMAN_PLAYER || mBoardButtons[move].text == COMPUTER_PLAYER)
-
-        return move
+        return -1
     }
     private fun checkForWinner():Int{
         // Check for a winner.  Return
@@ -240,5 +268,21 @@ class MainActivity : AppCompatActivity() {
     }
     private fun mensajes(msg:String){
         Toast.makeText(this,msg,Toast.LENGTH_SHORT).show()
+    }
+    enum class Difficulty {
+        EASY, HARDER, EXPERT
+    }
+    private fun cambiarDificultad(){
+        TODO("Desarrollar alerdialog personalizado para la dificultad")
+    }
+    private fun cerrarApp(){
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(getString(R.string.lblTitleCloseApp))
+        builder.setPositiveButton("Yes") { _: DialogInterface, _: Int -> finish() }
+        builder.setNegativeButton("No") { _: DialogInterface, _: Int -> }
+        builder.show()
+    }
+    override fun onBackPressed() {
+        cerrarApp()
     }
 }

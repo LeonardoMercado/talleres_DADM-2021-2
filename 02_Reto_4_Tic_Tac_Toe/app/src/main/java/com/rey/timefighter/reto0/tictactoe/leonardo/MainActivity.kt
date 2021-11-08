@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.rey.timefighter.reto0.tictactoe.leonardo.databinding.ActivityMainBinding
+import kotlin.system.exitProcess
 
 
 class MainActivity : AppCompatActivity() {
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener { it ->
             when(it.itemId){
                 R.id.newGame -> {
-                    mensajes("entramos a new game")
+                    clearBoard() // clear the board
                     true
                 }
                 R.id.difficulty -> {
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.exit -> {
-                    mensajes("Entramos a exit")
+                    finishAffinity()
                     true
                 }
                 else -> false

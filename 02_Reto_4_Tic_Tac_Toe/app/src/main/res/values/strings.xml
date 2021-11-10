@@ -34,6 +34,10 @@
 
     <!--MSG DIALOG-->
     <string name="lblTitleCloseApp">"Are you sure you want to quit?"</string>
+    <string name="titleDifficulty">Choose a difficulty level:</string>
+    <string name="lblEasy">Easy</string>
+    <string name="lblHarder">Harder</string>
+    <string name="lblExpert">Expert</string>
 
 
 

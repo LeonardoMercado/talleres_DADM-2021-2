@@ -273,7 +273,21 @@ class MainActivity : AppCompatActivity() {
         EASY, HARDER, EXPERT
     }
     private fun cambiarDificultad(){
-        TODO("Desarrollar alerdialog personalizado para la dificultad")
+        val options = arrayOf(getString(R.string.lblEasy),
+                              getString(R.string.lblHarder),
+                              getString(R.string.lblExpert))
+        val optionDialog = AlertDialog.Builder(this)
+            .setTitle(getString(R.string.titleDifficulty))
+            .setSingleChoiceItems(options,flagdifficulty.ordinal){dialogInterface, i ->
+                when(i){
+                    0 -> flagdifficulty = Difficulty.EASY
+                    1 -> flagdifficulty = Difficulty.HARDER
+                    2 -> flagdifficulty = Difficulty.EXPERT
+                }
+                clearBoard()
+                dialogInterface.dismiss()
+            }.create()
+        optionDialog.show()
     }
     private fun cerrarApp(){
         val builder = AlertDialog.Builder(this)

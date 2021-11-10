@@ -102,18 +102,18 @@ class MainActivity : AppCompatActivity() {
                     binding.lblInfo.text = getString(R.string.msgTie)
                     tieScore++
                     binding.lblScoreTies.text = "Ties:$tieScore"
+                    blockAllSpace()
                 }else if(winner == 2){
                     binding.lblInfo.text = getText(R.string.msgWinUser)
                     humanScore++
+                    blockAllSpace()
                     binding.lblScoreHuman.text = "Human:$humanScore"
+                    blockAllSpace()
                 }else{
                     binding.lblInfo.text = getText(R.string.msgWinComputer)
                     androidScore++
                     binding.lblScoreAndroid.text = "Android:$androidScore"
-                    for(btn in mBoardButtons){
-                        btn.isEnabled = false
-                        btn.isClickable = false
-                    }
+                    blockAllSpace()
                 }
             }
         }
@@ -298,5 +298,11 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onBackPressed() {
         cerrarApp()
+    }
+    private fun blockAllSpace(){
+        for(btn in mBoardButtons){
+            btn.isEnabled = false
+            btn.isClickable = false
+        }
     }
 }

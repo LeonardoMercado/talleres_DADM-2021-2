@@ -262,6 +262,9 @@ class MainActivity : AppCompatActivity() {
         return 1
     }
     private fun resetScore(){
+        humanScore = 0
+        tieScore = 0
+        androidScore = 0
         binding.lblScoreHuman.text = getString(R.string.lblHumanScore)
         binding.lblScoreTies.text = getString(R.string.lblTiesScore)
         binding.lblScoreAndroid.text = getString(R.string.lblAndroidScore)

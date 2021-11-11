@@ -4,6 +4,8 @@ import android.content.DialogInterface
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.rey.timefighter.reto0.tictactoe.leonardo.databinding.ActivityMainBinding
@@ -73,6 +75,18 @@ class MainActivity : AppCompatActivity() {
         clearBoard()
         resetScore()
         //btnReset.setOnClickListener {clearBoard()}
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.top_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.menuAbout){
+            mensajes("Entramos en about")
+        }
+        return super.onOptionsItemSelected(item)
     }
     private fun clearBoard(){
         // clearing the buttons

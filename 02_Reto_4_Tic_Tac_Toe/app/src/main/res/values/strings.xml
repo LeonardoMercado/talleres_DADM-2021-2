@@ -31,6 +31,7 @@
     <string name="lblDifficulty">Difficulty</string>
     <string name="lblReset">Reset Game</string>
     <string name="lblExit">Exit</string>
+    <string name="lblAbout">About</string>
 
     <!--MSG DIALOG-->
     <string name="lblTitleCloseApp">"Are you sure you want to quit?"</string>

@@ -20,6 +20,7 @@
     <string name="lblHumanScore">Human:0</string>
     <string name="lblTiesScore">Ties:0</string>
     <string name="lblAndroidScore">Android:0</string>
+    <string name="msgAbout">Choose from one of three difficulty levels. Dont\'t let the Android beat you</string>
 
 
     <!--AUXILIARY-->
@@ -39,6 +40,10 @@
     <string name="lblEasy">Easy</string>
     <string name="lblHarder">Harder</string>
     <string name="lblExpert">Expert</string>
+
+
+    <!--BTNS-->
+    <string name="btnOk">OK</string>
 
 
 

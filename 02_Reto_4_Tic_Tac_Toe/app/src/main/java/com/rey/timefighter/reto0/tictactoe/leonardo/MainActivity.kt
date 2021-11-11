@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.rey.timefighter.reto0.tictactoe.leonardo.databinding.ActivityMainBinding
@@ -76,15 +77,17 @@ class MainActivity : AppCompatActivity() {
         resetScore()
         //btnReset.setOnClickListener {clearBoard()}
     }
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.top_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.menuAbout){
-            mensajes("Entramos en about")
+            val builder = AlertDialog.Builder(this).setPositiveButton("OK"){dialog, _ -> dialog.dismiss()}
+            val view = View.inflate(this,R.layout.dialog_about,null)
+            builder.setView(view)
+            val dialog = builder.create()
+            dialog.show()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -138,9 +141,9 @@ class MainActivity : AppCompatActivity() {
         mBoardButtons[location].text = player
 
         if(player == HUMAN_PLAYER){
-            mBoardButtons[location].setTextColor(Color.parseColor("#00C800"))
+            mBoardButtons[location].setTextColor(Color.parseColor("#018786"))
         }else{
-            mBoardButtons[location].setTextColor(Color.parseColor("#C80000"))
+            mBoardButtons[location].setTextColor(Color.parseColor("#CF2828"))
         }
 
     }

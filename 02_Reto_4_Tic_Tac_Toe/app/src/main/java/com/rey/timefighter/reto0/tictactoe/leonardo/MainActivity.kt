@@ -9,7 +9,7 @@ import android.view.MenuItem
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.rey.timefighter.reto0.tictactoe.leonardo.databinding.ActivityMainBinding
-import kotlin.system.exitProcess
+
 
 
 class MainActivity : AppCompatActivity() {

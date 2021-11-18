@@ -45,10 +45,25 @@ class BoardView(context: Context,
 
         // Draw the two horizontal lines
         var cellHeight: Float = boardWidth / 3
-        canvas?.drawLine(cellHeight,0F, cellHeight,boardWidth,mPaint)
-        canvas?.drawLine(cellHeight*2,0F,cellHeight*2,boardWidth,mPaint)
+        canvas?.drawLine(0F,cellHeight,boardWidth,cellHeight,mPaint)
+        canvas?.drawLine(0F,cellHeight*2,boardWidth,cellHeight*2,mPaint)
 
-        
+        // Draw all the X and O images
+        for(i in 0..8){
+            var col:Int = i%3
+            var row:Int = i/3
+
+            // Define the bounderies of a destination rectangle for the image
+            var left:Int
+            var top:Int
+            var right:Int
+            var bottom:Int
+
+
+
+        }
+
+
 
 
 
